@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %} {% block body %}
+<article>
+  <h2>{{ product.title }}</h2>
+  <img
+    src="{{ asset('uploads/brochures/' ~ product.brochureFilename) }}"
+    alt=""
+  />
+  <a href="{{ path('app_category_show', { id: product.category.id }) }}">
+    {{ product.category.title }}
+  </a>
+</article>
+{% endblock %}

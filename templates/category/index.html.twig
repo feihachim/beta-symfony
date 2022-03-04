@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %} {% block title %}Liste des catégories{% endblock
+%} {% block body %}
+<a href="{{ path('app_category_new') }}">Ajouter catégorie</a>
+<div>
+  {% for category in categories %}
+  <ul class="list-group list-group-horizontal">
+    <li class="list-group-item">
+      <a href="{{ path('app_category_show', { id: category.id }) }}">
+        {{ category.title }}
+      </a>
+    </li>
+    <li class="list-group-item">
+      <a href="{{ path('app_category_edit', { id: category.id }) }}">
+        Modifier
+      </a>
+    </li>
+  </ul>
+
+  {% endfor %}
+</div>
+{% endblock %}

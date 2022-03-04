@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %} {% block title 'Détail catégorie' %} {% block
+body %}
+<h1>Détail catégorie</h1>
+<section>
+  <h2>{{ category.title }}</h2>
+  <p>{{ category.content }}</p>
+</section>
+<section>
+  <h2>Liste des produits</h2>
+  <div class="list-group">
+    {% for product in category.products %}
+    <a
+      href="{{ path('app_product_show', { id: product.id }) }}"
+      class="list-group-item list-group-item-action"
+    >
+      {{ product.title }}
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

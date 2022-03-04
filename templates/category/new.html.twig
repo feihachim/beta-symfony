@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %} {% block title %} {% if editMode %} Modifier
+catégorie {% else %} Nouvelle catégorie {% endif %} {% endblock %} {% block body
+%}
+<h1>
+  {% if editMode %} Modifier catégorie {% else %} Ajouter catégorie {% endif %}
+</h1>
+{{ form_start(form) }}
+{{ form_widget(form) }}
+<button class="btn btn-primary" type="submit">
+  {% if editMode %} Modifier {% else %} Ajouter {% endif %}
+</button>
+{{ form_end(form) }}
+{% endblock %}

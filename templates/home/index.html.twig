@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %} {% block title %}Liste des produits{% endblock %}
+{% block body %}
+<h1>Accueil Little blog</h1>
+{% if is_granted('ROLE_USER') %}
+<a href="{{ path('app_product_new') }}">Nouveau produit</a>
+{% endif %} {% for product in products %}
+<article>
+  <h2>{{ product.title }}</h2>
+  <img
+    src="{{ asset('uploads/brochures/' ~ product.brochureFilename) }}"
+    alt=""
+  />
+  <a href="{{ path('app_product_show', { id: product.id }) }}">Détails</a>
+  {% if is_granted('ROLE_USER') %}
+  <a href="{{ path('app_product_edit', { id: product.id }) }}">Modifier</a>
+  {% endif %}
+</article>
+{% endfor %} {% endblock %}
